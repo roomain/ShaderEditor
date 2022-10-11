@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <QSCINTILLA_DIR Condition="exists('D:\Libraries\QScintilla\QScintilla_src-2.13.3')">D:\Libraries\QSCINTILLA\QScintilla_src-2.13.3</QSCINTILLA_DIR>
+    <QSCINTILLA_DIR Condition="exists('C:\libraries\QScintilla\QScintilla_src-2.13.3')">C:\libraries\QSCINTILLA\QScintilla_src-2.13.3</QSCINTILLA_DIR>
+    <QSCINTILLA_LIB_DIR Condition=" '$(Configuration)'=='Debug' " >$(QSCINTILLA_DIR)\build\Debug\debug</QSCINTILLA_LIB_DIR>
+    <QSCINTILLA_LIB_DIR Condition=" '$(Configuration)'=='Release' " >$(QSCINTILLA_DIR)\build\Release\release</QSCINTILLA_LIB_DIR>
+    <QSCINTILLA_INC>$(QSCINTILLA_DIR)\src</QSCINTILLA_INC>
+    <QSCINTILLA_LIBFILE Condition=" '$(Configuration)'=='Release' ">qscintilla2_qt6.lib</QSCINTILLA_LIBFILE>
+    <QSCINTILLA_BIN Condition=" '$(Configuration)'=='Release' ">qscintilla2_qt6.dll</QSCINTILLA_BIN>
+    <QSCINTILLA_LIBFILE Condition=" '$(Configuration)'=='Debug' ">qscintilla2_qt6d.lib</QSCINTILLA_LIBFILE>
+    <QSCINTILLA_BIN Condition=" '$(Configuration)'=='Debug' ">qscintilla2_qt6d.dll</QSCINTILLA_BIN>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(QSCINTILLA_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(QSCINTILLA_LIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(QSCINTILLA_LIBFILE);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command></Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="QSCINTILLA_DIR">
+      <Value>$(QSCINTILLA_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="QSCINTILLA_LIB_DIR">
+      <Value>$(QSCINTILLA_LIB_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="QSCINTILLA_INC">
+      <Value>$(QSCINTILLA_INC)</Value>
+    </BuildMacro>
+    <BuildMacro Include="QSCINTILLA_LIB">
+      <Value>$(QSCINTILLA_LIB)</Value>
+    </BuildMacro>
+    <BuildMacro Include="QSCINTILLA_BIN">
+      <Value>$(QSCINTILLA_BIN)</Value>
+    </BuildMacro>
+    <BuildMacro Include="QSCINTILLA_LIBFILE">
+      <Value>$(QSCINTILLA_LIBFILE)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
